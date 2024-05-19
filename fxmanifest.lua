@@ -30,6 +30,7 @@ client_scripts {
     'siren.lua',
     'dep/siren.lua',
     'show.lua',
+    'fire/cl.lua',
 }
 
 server_scripts {
@@ -39,6 +40,7 @@ server_scripts {
     'vestiaire/server.lua',
     
     'sv.lua',
+    'fire/sv.lua',
 }
 
 shared_scripts {

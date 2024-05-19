@@ -94,7 +94,7 @@ lib:registerContext({
       {
         title = 'Menu Interaction',
         description = ' ',
-        menu = 'intermenu',
+        menu = 'intermenusafd',
       },   
       --{
       --  title = 'Emotes rapide',
@@ -105,11 +105,11 @@ lib:registerContext({
 })
 
 lib:registerContext({
-    id = 'intermenu',
+    id = 'intermenusafd',
     title = 'Interaction',
     menu = 'some_menu',
     onBack = function()
-      --print('Went back!')
+        lib:showContext('safdmenu')   
     end,
     options = {
         {
@@ -195,7 +195,7 @@ lib:registerContext({
     title = 'Emotes rapide',
     menu = 'some_menu',
     onBack = function()
-
+        lib:showContext('safdmenu')   
     end,
     options = {
         {

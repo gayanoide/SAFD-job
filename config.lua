@@ -1,6 +1,8 @@
 Config             = {}
 Config.SaveDeathStatus	= true -- Save Death Status?
 
+
+
 Config.pos = {
 
 	menu = {
@@ -145,3 +147,5 @@ Cars = {
         plate = "M1 11"
     },
 }
+
+

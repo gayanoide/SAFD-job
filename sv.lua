@@ -149,3 +149,10 @@ for i=1, #xPlayers, 1 do
 	TriggerClientEvent("k5_notify:notify", xPlayers[i], 'S.A.F.D', 'La permanance est FERMER', 'safd', 10000)
 end
 end)
+
+
+RegisterNetEvent('lspd:drag')
+AddEventHandler('lspd:drag', function(target)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	TriggerClientEvent('lspd:drag', target, source)
+end)
