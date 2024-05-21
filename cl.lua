@@ -652,8 +652,8 @@ function tp(x,y,z)
 	SetEntityCoords(PlayerPedId(), x, y, z - 0.9)
 end
 
-RegisterNetEvent('tp:openmenu')
-AddEventHandler('tp:openmenu', function()
+RegisterNetEvent('tp:safdmenu')
+AddEventHandler('tp:safdmenu', function()
     exports.ox_lib:showContext('tpsafd')
 end)
 
@@ -668,7 +668,7 @@ exports.ox_target:addBoxZone(
         options = {
             {
                 name = 'poly',
-                event = 'tp:openmenu',
+                event = 'tp:safdmenu',
                 icon = 'fa-solid fa-cube',
                 label = 'Appeler un assenceur',
             },
@@ -689,7 +689,7 @@ exports.ox_target:addBoxZone(
         options = {
             {
                 name = 'poly',
-                event = 'tp:openmenu',
+                event = 'tp:safdmenu',
                 icon = 'fa-solid fa-cube',
                 label = 'Appeler un assenceur',
             },
@@ -710,7 +710,7 @@ exports.ox_target:addBoxZone(
         options = {
             {
                 name = 'poly',
-                event = 'tp:openmenu',
+                event = 'tp:safdmenu',
                 icon = 'fa-solid fa-cube',
                 label = 'Appeler un assenceur',
             },
