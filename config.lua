@@ -46,6 +46,15 @@ Config.pos = {
 	vest = { -- Vestiaire
 		position = {x = -627.43, y = -121.71, z = 39.32},
 	},
+	
+	coffre = { 
+		position = {x = -626.56+0.5, y = -138.49, z = 39.00},			
+		poids = 10,
+	},
+
+	craft = { 
+		position = {x = -617.02, y = -104.88, z = 38.15},
+	},
 
 
 

@@ -31,6 +31,7 @@ client_scripts {
     'dep/siren.lua',
     'show.lua',
     'fire/cl.lua',
+    'crafting.lua',
 }
 
 server_scripts {
