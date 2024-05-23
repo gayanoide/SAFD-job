@@ -142,7 +142,8 @@ lib:registerContext({
                         end
                     end
                     --TriggerServerEvent("okokBilling:CreateCustomInvoice", GetPlayerServerId(player), 300, 'Facture', 'S.A.M.S', 'society_sams', ('sams'))
-                                    
+                    TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_safd', 'Facture '..Config.pos.menu.title, 300)
+                               
                 else
                     ESX.ShowNotification('Vous n\'avez pas de bandage')
                 end
@@ -171,6 +172,7 @@ lib:registerContext({
                         TriggerServerEvent('Emysams:heal', GetPlayerServerId(closestPlayer), 'big')
                     end
                     --TriggerServerEvent("okokBilling:CreateCustomInvoice", GetPlayerServerId(player), 500, 'Facture', 'S.A.M.S', 'society_sams', ('sams'))
+                    TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_safd', 'Facture '..Config.pos.menu.title, 500)
                 else
                     ESX.ShowNotification('Vous n\'avez pas de kit médical')
                 end
@@ -181,13 +183,45 @@ lib:registerContext({
           description = 'Faire une facture custom',
           onSelect = function()
               ESX.ShowNotification("~y~ca fonctionne")
-
-              TriggerServerEvent("okokBilling:CreateCustomInvoice", GetPlayerServerId(player), montant, 'Facture', 'L.S.E.S', 'society_ambulance', ('ambulance'))
-            
+                OpenBillingMenu() 
           end,
-        },
+        }, 
     }
 })
+
+
+function OpenBillingMenu()
+    local playerPed = PlayerPedId()
+    local player, distance = ESX.Game.GetClosestPlayer()
+
+    
+    --print("Player: ", player, " Distance: ", distance) -- Debugging line
+
+    if player ~= -1 and distance <= 3.0 then
+        local target = GetPlayerServerId(player)
+        --print("Avant d'ouvrir le dialogue") -- Debugging line
+
+        local input = exports.ox_lib:inputDialog('Facture S.A.F.D', {
+            { type = 'number', label = 'Montant', placeholder = 'Montant de la facture' }
+        })
+        --print("Après avoir tenté d'ouvrir le dialogue") -- Debugging line
+
+        if input then
+            local amount = tonumber(input[1])
+
+            if amount then
+                TriggerServerEvent('esx_billing:sendBill', target, 'society_safd', 'Facture '..Config.pos.menu.title, amount)
+                ESX.ShowNotification('Facture envoyer')
+            else
+                ESX.ShowNotification('Informations de la facture incorrectes')
+            end
+        else
+            ESX.ShowNotification('Facturation annulée')
+        end
+    else
+        ESX.ShowNotification('Aucun joueur à proximité')
+    end
+end
 
 
 lib:registerContext({
